@@ -21,7 +21,7 @@ namespace StringFormatAlignment
             };
             data.ForEach(o =>
             {
-                Console.WriteLine(String.Format("{0, -16} {1, 6:N0}", o.Name, o.Score));
+                Console.WriteLine($"{o.Name, -16} {o.Score, 6:N0}");
             });
         }
     }
