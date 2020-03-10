@@ -5,12 +5,6 @@ namespace StringFormatAlignment
 {
     class Program
     {
-        static string FixedWidth(object value, int width, bool leftAlign)
-        {
-            var s = value == null ? string.Empty : value.ToString();
-            return leftAlign ? s.PadRight(width) : s.PadLeft(width);
-        }
-
         class Entry
         {
             public string Name;
@@ -27,8 +21,7 @@ namespace StringFormatAlignment
             };
             data.ForEach(o =>
             {
-                Console.WriteLine(
-                    $"{FixedWidth(o.Name, 16, true)} {FixedWidth(o.Score.ToString("N0"), 6, false)}");
+                Console.WriteLine(String.Format("{0, -16} {1, 6:N0}", o.Name, o.Score));
             });
         }
     }
